@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="User"
+            type="com.example.dataBinding2.User" />
+        <variable
+            name="ClickHandler"
+            type="com.example.dataBinding2.MainActivity.ClickHandler" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/LayoutOneId"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/LayoutTwoId"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="50dp">
+
+            <LinearLayout
+                android:id="@+id/LayoutThreeId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="@string/firstName"
+                    android:textSize="20sp">
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:layout_marginLeft="20dp"
+                    android:text="@{User.firstName}"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp">
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LayoutFourId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="@string/lastName"
+                    android:textSize="20sp">
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:layout_marginLeft="20dp"
+                    android:text="@{User.lastName}"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp">
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="50dp"
+            android:gravity="center"
+            android:orientation="vertical">
+        
+            <EditText
+                android:autofillHints="@string/firstName"
+                android:inputType="text"
+                android:id="@+id/EditFirstNameId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/firstName">
+            </EditText>
+
+            <EditText
+                android:autofillHints="@string/lastName"
+                android:inputType="text"
+                android:id="@+id/EditSecondNameId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lastName"
+                android:layout_marginTop="10dp">
+            </EditText>
+            
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/update_name"
+                android:background="@drawable/border"
+                android:padding="10dp"
+                android:layout_marginTop="30dp"
+                android:onClick="@{(v)->ClickHandler.updateUser(v)}">
+            </Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
